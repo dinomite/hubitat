@@ -1,6 +1,4 @@
 node_modules/
-manifest.json
-.env
 .repos
 src/**/*.js
 src/**/*.js.map

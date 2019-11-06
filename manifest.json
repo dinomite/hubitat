@@ -1,0 +1,36 @@
+{
+  "app": {
+    "97": {
+      "filename": "jason0x43-scene_manager.groovy",
+      "id": 97,
+      "version": 1,
+      "hash": "f1b964fef64f3b4fcfaede48c7774a86304cc1ddbc3fe74991b063940addb1c0fc3856325a7177ab8cbe7573af751322b735246a5a1fb59588b9a0bd93e4307b"
+    },
+    "98": {
+      "filename": "jason0x43-scene.groovy",
+      "id": 98,
+      "version": 1,
+      "hash": "5de6f4f37f28fc1c38a3667b7141297a58b7715b190691fab65ad08b0d70340caf1e4c76fef9746b8e7280993e5f68808504d18f7bb5a702a5c745c371cb2a9f"
+    }
+  },
+  "driver": {
+    "280": {
+      "filename": "hubitat-basic_z-wave_tool.groovy",
+      "id": 280,
+      "version": 2,
+      "hash": "ede4bb8584fab194a702885ecd62cc10c962869a31299295fed7fea4de94824180c93cc1d9665990a7bd02faf2299427220cfbda69cb951ed702f929805c539f"
+    },
+    "321": {
+      "filename": "InovelliUSA-inovelli_switch_red_series_lzw30-sn.groovy",
+      "id": 321,
+      "version": 1,
+      "hash": "2d37cc889f9fc71ffceb435cf467c02f347f4319357231aee9c16251f5b23f547009455a4c33a8257104b82682e10bd6d6f2a89c4ed52589b6c4cbac1f39fb22"
+    },
+    "322": {
+      "filename": "jason0x43-darksky.groovy",
+      "id": 322,
+      "version": 1,
+      "hash": "5ceb41179740320a8d7c8e8e16d85db36fa250fa86ce40e5bebbf36bd5c8fd8521c58fde0c2eab7a174368a0280d91ff0f34056f6cd44a0da463a0ae37e35202"
+    }
+  }
+}
