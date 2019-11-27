@@ -1,13 +1,7 @@
 {
   "app": {
-    "97": {
-      "filename": "jason0x43-scene_manager.groovy",
-      "id": 97,
-      "version": 1,
-      "hash": "f1b964fef64f3b4fcfaede48c7774a86304cc1ddbc3fe74991b063940addb1c0fc3856325a7177ab8cbe7573af751322b735246a5a1fb59588b9a0bd93e4307b"
-    },
-    "98": {
-      "filename": "jason0x43-scene.groovy",
+    "99": {
+      "filename": "circadian-daylight.groovy",
       "id": 98,
       "version": 1,
       "hash": "5de6f4f37f28fc1c38a3667b7141297a58b7715b190691fab65ad08b0d70340caf1e4c76fef9746b8e7280993e5f68808504d18f7bb5a702a5c745c371cb2a9f"
