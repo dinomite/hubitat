@@ -17,8 +17,8 @@
     "321": {
       "filename": "InovelliUSA-inovelli_switch_red_series_lzw30-sn.groovy",
       "id": 321,
-      "version": 1,
-      "hash": "2d37cc889f9fc71ffceb435cf467c02f347f4319357231aee9c16251f5b23f547009455a4c33a8257104b82682e10bd6d6f2a89c4ed52589b6c4cbac1f39fb22"
+      "version": 3,
+      "hash": "d44020dca356d931d31ad0b39b23c7db3ff63c04ff9f8526eec0d45d16372f36c7d69b2a25570522c718baac4f36b37070c334050b498b7eaf6be858dcefbbe6"
     },
     "322": {
       "filename": "jason0x43-darksky.groovy",
