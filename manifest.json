@@ -5,12 +5,6 @@
       "id": 99,
       "version": 2,
       "hash": "dc7b997761e6ba3193b89691a5d876265f93ec0ea81d261d928a2ce170a82c4c16839f5f58e25941ca2e183faa30090408bd835bf8cb03038556ee3d85fab352"
-    },
-    "129": {
-      "filename": "tchoward-myq_lite.groovy",
-      "id": 129,
-      "version": 1,
-      "hash": "f32a94455065afc505600b6289be7678f6537d2bb8a18b4d59429cc22a510cb545ca7f9a31e9c31d9ad74d667ec5199882ec7c69fa7a70b35629f2a616a26861"
     }
   },
   "driver": {
@@ -31,12 +25,6 @@
       "id": 322,
       "version": 1,
       "hash": "5ceb41179740320a8d7c8e8e16d85db36fa250fa86ce40e5bebbf36bd5c8fd8521c58fde0c2eab7a174368a0280d91ff0f34056f6cd44a0da463a0ae37e35202"
-    },
-    "385": {
-      "filename": "tchoward-myq_garage_door_opener.groovy",
-      "id": 385,
-      "version": 1,
-      "hash": "027933df44a3e25b2a0becd1ffbb9840ff987e88cabd76427d65afb54f3fd258a9703aa2d1f177963438ddafff3f04778bd1e447f4be44612295407b6ff22780"
     }
   }
 }
