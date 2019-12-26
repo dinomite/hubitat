@@ -25,6 +25,12 @@
       "id": 322,
       "version": 1,
       "hash": "5ceb41179740320a8d7c8e8e16d85db36fa250fa86ce40e5bebbf36bd5c8fd8521c58fde0c2eab7a174368a0280d91ff0f34056f6cd44a0da463a0ae37e35202"
+    },
+    "385": {
+      "filename": "myQDevice.groovy",
+      "id": 385,
+      "version": 1,
+      "hash": "5ceb41179740320a8d7c8e8e16d85db36fa250fa86ce40e5bebbf36bd5c8fd8521c58fde0c2eab7a174368a0280d91ff0f34056f6cd44a0da463a0ae37e35202"
     }
   }
 }
