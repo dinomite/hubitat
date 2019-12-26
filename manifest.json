@@ -1,10 +1,10 @@
 {
   "app": {
     "99": {
-      "filename": "circadian-daylight.groovy",
-      "id": 98,
-      "version": 1,
-      "hash": "5de6f4f37f28fc1c38a3667b7141297a58b7715b190691fab65ad08b0d70340caf1e4c76fef9746b8e7280993e5f68808504d18f7bb5a702a5c745c371cb2a9f"
+      "filename": "circadianDaylight-circadian_daylight.groovy",
+      "id": 99,
+      "version": 2,
+      "hash": "dc7b997761e6ba3193b89691a5d876265f93ec0ea81d261d928a2ce170a82c4c16839f5f58e25941ca2e183faa30090408bd835bf8cb03038556ee3d85fab352"
     }
   },
   "driver": {

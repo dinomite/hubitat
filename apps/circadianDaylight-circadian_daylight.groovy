@@ -1,67 +1,67 @@
 /**
- *	Hubitat Circadian Daylight 0.81
- *
- *	Author:
- *		Adam Kempenich
- *
- *	Documentation:  https://community.hubitat.com/t/release-app-circadian-daylight-port/
- *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- *                                                                             *
- *	Forked from:                                                              *
- *  		SmartThings Circadian Daylight v. 2.6                                 *
- *		https://github.com/KristopherKubicki/smartapp-circadian-daylight/     *
- *                                                                             *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- *
- *  Changelog:
- *	0.81 (October 1 2019)
- *		- Fixed default color temp outside of sunrise/set times when CT overridden
- *	0.80 (May 13 2019)
- *		- Added brightness-per-mode
- *		- Added Min/Max brightness
- *		- Fixed zip-code
- *		- Added disable brightness changes when manually pressed
- *		- Added disable when switch off option
- *		- Added LogDebug
- *		- Added DescriptionText
- *		- Updated settings language
- *		- Removed 'sleep modes' since they were confusing. Functionality is still there with manual overrides
- *		- Began reworking settings
- *		- Added custom fade-in/fade-out periods, thanks to Jeff Byrom (@talz13)
- *
- *	0.72 (Apr 01 2019)
- *		- Added fix for sunset offset issues
- *		- Added zip code override
- *
- *	0.71 (Mar 29 2019)
- *		- Added fix for modes and switches not overriding
- *
- *	0.70 (Mar 28 2019)
- *		- Initial (official) release
- *
- * 	To-Do:
- *		- Add number verification
- *		- Clean Up Code
- *		- Use Child Apps
- *		- Disable disableBrightnessWhenManuallyChanged with switch on/off
- *		- Allow for CT to keep processing when disableBrightnessWhenManuallyChanged on/off
- *		- Match light to luminosity (or average) from sensor
- *		- Begin/End CT for sunrise/sunset
- *		- Add switch to reset disableWhenManuallyChanged
- *		- Add CRON adjustment
- *		- Adding minimum/maximum sunrise/sunset times
- */
+*	Hubitat Circadian Daylight 0.81
+*
+*	Author:
+*		Adam Kempenich
+*
+*	Documentation:  https://community.hubitat.com/t/release-app-circadian-daylight-port/
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                             *
+*	Forked from:                                                              *
+*  		SmartThings Circadian Daylight v. 2.6                                 *
+*		https://github.com/KristopherKubicki/smartapp-circadian-daylight/     *
+*                                                                             *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*  Changelog:
+*	0.81 (October 1 2019)
+*		- Fixed default color temp outside of sunrise/set times when CT overridden
+*	0.80 (May 13 2019)
+*		- Added brightness-per-mode
+*		- Added Min/Max brightness
+*		- Fixed zip-code
+*		- Added disable brightness changes when manually pressed
+*		- Added disable when switch off option
+*		- Added LogDebug
+*		- Added DescriptionText
+*		- Updated settings language
+*		- Removed 'sleep modes' since they were confusing. Functionality is still there with manual overrides
+*		- Began reworking settings
+*		- Added custom fade-in/fade-out periods, thanks to Jeff Byrom (@talz13)
+*
+*	0.72 (Apr 01 2019)
+*		- Added fix for sunset offset issues
+*		- Added zip code override
+*
+*	0.71 (Mar 29 2019)
+*		- Added fix for modes and switches not overriding
+*
+*	0.70 (Mar 28 2019)
+*		- Initial (official) release
+*
+* 	To-Do:
+*		- Add number verification
+*		- Clean Up Code
+*		- Use Child Apps
+*		- Disable disableBrightnessWhenManuallyChanged with switch on/off
+*		- Allow for CT to keep processing when disableBrightnessWhenManuallyChanged on/off
+*		- Match light to luminosity (or average) from sensor
+*		- Begin/End CT for sunrise/sunset
+*		- Add switch to reset disableWhenManuallyChanged
+*		- Add CRON adjustment
+*		- Adding minimum/maximum sunrise/sunset times
+*/
 
 definition(
-    name: "Circadian Daylight",
-    namespace: "circadianDaylight",
-    author: "Adam Kempenich",
-    importURL: "https://raw.githubusercontent.com/adamkempenich/hubitat/master/Apps/CircadianDaylight.groovy",
-    description: "Sync your color temperature, color changing, and dimmable lights to natural daylight hues to improve your cognitive functions and restfulness.",
-    category: "Green Living",
-    iconUrl: "",
-    iconX2Url: ""
+        name: "Circadian Daylight",
+        namespace: "circadianDaylight",
+        author: "Adam Kempenich",
+        importURL: "https://raw.githubusercontent.com/adamkempenich/hubitat/master/Apps/CircadianDaylight.groovy",
+        description: "Sync your color temperature, color changing, and dimmable lights to natural daylight hues to improve your cognitive functions and restfulness.",
+        category: "Green Living",
+        iconUrl: "",
+        iconX2Url: ""
 )
 
 preferences {
@@ -83,15 +83,15 @@ def mainPage(){
             paragraph "<b>Original SmartThings Project:</b>"
             paragraph "- ClaytonJN and Kristopher Kubicki."
             paragraph "https://github.com/KristopherKubicki/smartapp-circadian-daylight/"
-
-            paragraph "<b>Custom fade-in/fade-out time:</b>"
+			
+			paragraph "<b>Custom fade-in/fade-out time:</b>"
             paragraph "- Jeff Byrom (@talz13)."
         }
 
-        section("<h2>App Name</h2>"){
-            label title: "Enter a name for this app (optional)", required: false
-        }
-
+		section("<h2>App Name</h2>"){
+			label title: "Enter a name for this app (optional)", required: false
+		}
+		
         section("Thanks for installing Circadian Daylight! This application dims and adjusts the color temperature of your lights to match the state of the sun, which has been proven to aid in cognitive functions and restfulness. The default options are well suited for most users, but feel free to tweak accordingly!") {}
         section("Control these devices: (Only check each device once)") {
             input "colorTemperatureDevices", "capability.colorTemperature", title: "Which Color Temperature capable devices?", multiple:true, required: false
@@ -108,43 +108,43 @@ def mainPage(){
 
         section(){
             href(name: "toSunsetSunriseOptions",
-                title: "<b>Sunset/Sunrise Options</b>",
-                page: "sunsetSunriseOptions",
-                description: "Set Advanced Sunset/Sunrise Options"
+                    title: "<b>Sunset/Sunrise Options</b>",
+                    page: "sunsetSunriseOptions",
+                    description: "Set Advanced Sunset/Sunrise Options"
             )
         }
 
         section(){
             href(name: "toColorTemperatureOverrides",
-                title: "<b>Color Temperature Options</b>",
-                page: "colorTemperatureOverrides",
-                description: "Set Advanced Sunset/Sunrise Options"
+                    title: "<b>Color Temperature Options</b>",
+                    page: "colorTemperatureOverrides",
+                    description: "Set Advanced Sunset/Sunrise Options"
             )
         }
 
         section(){
             href(name: "toAdvancedBrightnessOptions",
-                title: "<b>Advanced Brightness Options</b>",
-                page: "advancedBrightnessOptions",
-                description: "Set Advanced Brightness and mode Options"
+                    title: "<b>Advanced Brightness Options</b>",
+                    page: "advancedBrightnessOptions",
+                    description: "Set Advanced Brightness and mode Options"
             )
         }
 
         section(){
             href(name: "toDisableOptions",
-                title: "<b>Disable Circadian Daylight Options</b>",
-                page: "disableOptions",
-                description: "Disable when..."
+                    title: "<b>Disable Circadian Daylight Options</b>",
+                    page: "disableOptions",
+                    description: "Disable when..."
             )
         }
-
+	
         section("Debugging:") {
             input(name:"logDescriptionText", type:"bool", title: "Log description text?",
-                description: "Logs useful information when things change. (Default: On)", defaultValue: true,
-                required: true, displayDuringSetup: true)
+                    description: "Logs useful information when things change. (Default: On)", defaultValue: true,
+                    required: true, displayDuringSetup: true)
             input(name:"logDebug", type:"bool", title: "Log debug information?",
-                description: "Logs raw data for debugging. (Default: Off)", defaultValue: false,
-                required: true, displayDuringSetup: true)
+                    description: "Logs raw data for debugging. (Default: Off)", defaultValue: false,
+                    required: true, displayDuringSetup: true)
         }
     }
 
@@ -162,7 +162,7 @@ def sunsetSunriseOptions(){
             input "useSunOffsets", "bool", title: "Use Sunset/Sunrise Offsets (+/-)?"
             input "sunriseOffset", "decimal", title: "Sunrise Offset (+/-)", required: false, hideWhenEmpty: "useSunOffsets"
             input "sunsetOffset", "decimal", title: "Sunset Offset (+/-)", required: false, hideWhenEmpty: "useSunOffsets"
-
+			
             // input "zipCodeOverride", "number", title: "Zip Code Override", required: false
         }
 
@@ -188,14 +188,14 @@ def advancedBrightnessOptions(){
             input "maxBrightnessOverride","number", title: "Max Brightness Override", required: false, hideWhenEmpty: "useBrightnessOverrides"
             input "minBrightnessOverride","number", title: "Min Brightness Override", required: false, hideWhenEmpty: "useBrightnessOverrides"
         }
+		
+		section("<h2>Manual brighten/dim periods</h2><br><p>You must have dynamic brightness enabled for this to work</p>") { // Thanks, Jeff Byrom (@talz13)!
+			input "brightenTimeStart", "time", title: "Start Brightening At", required: false
+			input "brightenTimeEnd", "time", title: "End Brightening At", required: false
 
-        section("<h2>Manual brighten/dim periods</h2><br><p>You must have dynamic brightness enabled for this to work</p>") { // Thanks, Jeff Byrom (@talz13)!
-            input "brightenTimeStart", "time", title: "Start Brightening At", required: false
-            input "brightenTimeEnd", "time", title: "End Brightening At", required: false
-
-            input "dimTimeStart", "time", title: "Start Dimming At", required: false
-            input "dimTimeEnd", "time", title: "End Dimming At", required: false
-        }
+			input "dimTimeStart", "time", title: "Start Dimming At", required: false
+			input "dimTimeEnd", "time", title: "End Dimming At", required: false
+		}
 
         section() {
             section("<h2>Brightness Per Mode Options</h2>") {}
@@ -326,10 +326,10 @@ private def getSunriseTime(){
         logDebug "getSunriseTime - System Sunrise time: ${sunRiseSet}"
     }
     else{
-        sunRiseSet = getSunriseAndSunset(zipCode: "${settings.zipCodeOverride}")
+	sunRiseSet = getSunriseAndSunset(zipCode: "${settings.zipCodeOverride}")
         logDebug "getSunrisetTime - Zipcode (${settings.zipCodeOverride}). Sunrise time: ${sunRiseSet}"
     }
-
+	
     if(settings.sunriseOverride != null && settings.sunriseOverride != ""){
         sunriseTime = new Date().parse("yyyy-MM-dd'T'HH:mm:ss.SSSZ", settings.sunriseOverride)
         logDebug "Sunrise overridden to ${sunriseTime}"
@@ -353,10 +353,10 @@ private def getSunsetTime(){
         logDebug "getSunsetTime - System Sunset time: ${sunRiseSet}"
     }
     else{
-        sunRiseSet = getSunriseAndSunset(zipCode: "${settings.zipCodeOverride}")
+	sunRiseSet = getSunriseAndSunset(zipCode: "${settings.zipCodeOverride}")
         logDebug "getSunsetTime - Zipcode (${settings.zipCodeOverride}). Sunset time: ${sunRiseSet}"
     }
-
+	
     if(settings.sunsetOverride != null && settings.sunsetOverride != ""){
         sunsetTime = new Date().parse("yyyy-MM-dd'T'HH:mm:ss.SSSZ", settings.sunsetOverride)
         logDebug "Sunset overridden to ${sunsetTime}"
@@ -406,12 +406,12 @@ def scheduleTurnOn() {
 
 // Poll all devices, and modify the ones that differ from the expected state
 def modeHandler(evt) {
-    logDebug "modeHandler called"
-
+	logDebug "modeHandler called"
+	
     for (disableSwitch in disablingSwitches) {
         if(!settings.disableWhenSwitchOff){
             if(disableSwitch.currentSwitch == "on") {
-                logDebug "Disabled from switch. Ignoring any brightness updates until reset."
+				logDebug "Disabled from switch. Ignoring any brightness updates until reset."
                 return
             }
         }
@@ -421,29 +421,29 @@ def modeHandler(evt) {
     }
 
     if(!state.justInitialized){
-        for(device in colorTemperatureDevices) {
-            if(settings.disableWhenDimmed && device.currentValue("level") != state.lastAssignedBrightness){
-                state.disabledFromDimmer = true
-                logDescriptionText "Color temperature has changed outside of CD. Disabling until reset time runs"
-            }
-        }
-        for(device in colorDevices) {
-            if(settings.disableWhenDimmed && device.currentValue("level") != state.lastAssignedBrightness){
-                state.disabledFromDimmer = true
-                logDescriptionText "Color temperature has changed outside of CD. Disabling until reset time runs"
-            }
-        }
-        for(device in dimmableDevices) {
-            if(settings.disableWhenDimmed && device.currentValue("level") != state.lastAssignedBrightness){
-                state.disabledFromDimmer = true
-                logDescriptionText "Color temperature has changed outside of CD. Disabling until reset time runs"
-            }
-        }
+		for(device in colorTemperatureDevices) {
+			if(settings.disableWhenDimmed && device.currentValue("level") != state.lastAssignedBrightness){
+				state.disabledFromDimmer = true
+				logDescriptionText "Color temperature has changed outside of CD. Disabling until reset time runs"
+			}
+		}
+		for(device in colorDevices) {
+			if(settings.disableWhenDimmed && device.currentValue("level") != state.lastAssignedBrightness){
+				state.disabledFromDimmer = true
+				logDescriptionText "Color temperature has changed outside of CD. Disabling until reset time runs"
+			}
+		}
+		for(device in dimmableDevices) {
+			if(settings.disableWhenDimmed && device.currentValue("level") != state.lastAssignedBrightness){
+				state.disabledFromDimmer = true
+				logDescriptionText "Color temperature has changed outside of CD. Disabling until reset time runs"
+			}
+		}
     }
     else{
         state.justInitialized = false
     }
-
+	
     def ct = getCT()
     def hex = getHex()
     def hsv = getHSV()
@@ -531,16 +531,16 @@ def checkCurrentMode(){
 }
 
 def getCTBright() {
-
+		
     def brightenStart = settings.brightenTimeStart == null || settings.brightenTimeStart == "" ? null : Date.parse("yyyy-MM-dd'T'HH:mm:ss.SSSZ", settings.brightenTimeStart)
     def brightenEnd = settings.brightenTimeEnd == null || settings.brightenTimeEnd == "" ? null : Date.parse("yyyy-MM-dd'T'HH:mm:ss.SSSZ", settings.brightenTimeEnd)
     def dimStart = settings.dimTimeStart == null || settings.dimTimeStart == "" ? null : Date.parse("yyyy-MM-dd'T'HH:mm:ss.SSSZ", settings.dimTimeStart)
     def dimEnd = settings.dimTimeEnd == null || settings.dimTimeEnd == "" ? null : Date.parse("yyyy-MM-dd'T'HH:mm:ss.SSSZ", settings.dimTimeEnd)
 
-
+	
     def sunriseTime = getSunriseTime()
     def sunsetTime = getSunsetTime()
-
+	
 
     def midDay = sunriseTime.time + ((sunsetTime.time - sunriseTime.time) / 2)
 
@@ -556,60 +556,60 @@ def getCTBright() {
     def lowBrightness = 1
     def fullRange = highBrightness - lowBrightness
 
-    if( settings.maxBrightnessOverride < 100 && settings.maxBrightnessOverride != null ){
-        highBrightness = settings.maxBrightnessOverride
-    }
-    if( settings.minBrightnessOverride > 0 && settings.minBrightnessOverride != null){
-        lowBrightness = settings.minBrightnessOverride
-    }
+	if( settings.maxBrightnessOverride < 100 && settings.maxBrightnessOverride != null ){
+		highBrightness = settings.maxBrightnessOverride
+	}
+	if( settings.minBrightnessOverride > 0 && settings.minBrightnessOverride != null){
+		lowBrightness = settings.minBrightnessOverride
+	}
 
-
+	
     if( ( currentTime > sunriseTime.time && currentTime < sunsetTime.time ) || ( brightenStart != null && dimEnd != null && ( currentTime > brightenStart && currentTime < dimEnd ) ) ) { // time is between sunrise and sunset
 
         if(currentTime < midDay) {
             colorTemp = warmCT + ((currentTime - sunriseTime.time) / (midDay - sunriseTime.time) * midCT)
 
-            // check if time is between brightenStart/end
-            // if it is, calculate percent
-            // if it isn't, set brightness to max
-
-            if( brightenEnd != null && currentTime > brightenEnd.time ) {
-                brightness == highBrightness
-            }
-            else if( brightenStart != null && currentTime < brightenStart.time ) {
-                brightness = lowBrightness
-            }
-            else if( brightenStart != null && brightenEnd != null && ( currentTime > brightenStart.time && currentTime < brightenEnd.time ) ) {
-                brightnessPercentage = ( ( currentTime - brightenStart.time ) / ( brightenEnd.time - brightenStart.time))
-                brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
-            }
-            else{
-                brightnessPercentage = ((currentTime - sunriseTime.time) / (midDay - sunriseTime.time))
-                brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
-            }
+			// check if time is between brightenStart/end
+			// if it is, calculate percent
+			// if it isn't, set brightness to max
+			
+			if( brightenEnd != null && currentTime > brightenEnd.time ) {
+				brightness == highBrightness
+			}
+			else if( brightenStart != null && currentTime < brightenStart.time ) {
+				brightness = lowBrightness	
+			}
+			else if( brightenStart != null && brightenEnd != null && ( currentTime > brightenStart.time && currentTime < brightenEnd.time ) ) {
+				brightnessPercentage = ( ( currentTime - brightenStart.time ) / ( brightenEnd.time - brightenStart.time))
+				brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
+			}
+			else{
+				brightnessPercentage = ((currentTime - sunriseTime.time) / (midDay - sunriseTime.time))
+				brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
+			}
         }
         else {
             colorTemp = coldCT - ((currentTime - midDay) / (sunsetTime.time - midDay) * midCT)
 
             if( dimStart != null && currentTime < dimStart.time ) {
-                brightness == highBrightness
-            }
-            else if( dimEnd != null && currentTime > dimEnd.time ) {
-                brightness = lowBrightness
-            }
-            else if( dimStart != null && dimEnd != null && ( currentTime > dimStart.time && currentTime < dimEnd.time ) ) {
-                brightnessPercentage = 1 - ((currentTime - dimStart.time) / (dimEnd.time - dimStart.time))
-                brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
-            }
-            else{
-                brightnessPercentage = 1 - ((currentTime - midDay) / (sunsetTime.time - midDay))
-                brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
-            }
-
+				brightness == highBrightness
+			}
+			else if( dimEnd != null && currentTime > dimEnd.time ) {
+				brightness = lowBrightness	
+			}
+			else if( dimStart != null && dimEnd != null && ( currentTime > dimStart.time && currentTime < dimEnd.time ) ) {
+				brightnessPercentage = 1 - ((currentTime - dimStart.time) / (dimEnd.time - dimStart.time))
+           	 	brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
+			}
+			else{
+				brightnessPercentage = 1 - ((currentTime - midDay) / (sunsetTime.time - midDay))
+            	brightness = ( brightnessPercentage * fullRange + lowBrightness )/ 100
+			}
+            
 
         }
     }
-
+	
     if(settings.dynamicBrightness == false) {
         if(settings.maxBrightnessOverride < 100 && settings.maxBrightnessOverride != null){
             brightness = settings.maxBrightnessOverride / 100
@@ -698,8 +698,8 @@ def getBright() {
 }
 
 def disableDimmerOverride(){
-
-    logDescriptionText "Resetting override from external dimming."
+	
+	logDescriptionText "Resetting override from external dimming."
     state.disabledFromDimmer = false
 }
 
