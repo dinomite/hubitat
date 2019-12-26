@@ -167,7 +167,7 @@ async function updateRemoteResource(
     }
 
     if (localRes.version !== remoteRes.version) {
-      console.error(`${type} ${filename} is out of date; pull first`);
+      console.error(`${type} ${filename} is out of date; pull first (local: ${localRes.version} remote: ${remoteRes.version})`);
       return false;
     }
 
